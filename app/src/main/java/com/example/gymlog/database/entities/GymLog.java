@@ -25,6 +25,17 @@ public class GymLog {
     }
 
     @Override
+    public String toString() {
+        return "GymLog{" +
+                "id=" + id +
+                ", exercise='" + exercise + '\'' +
+                ", weight=" + weight +
+                ", reps=" + reps +
+                ", date=" + date +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
