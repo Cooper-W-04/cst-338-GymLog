@@ -85,6 +85,7 @@
         app:layout_constraintStart_toEndOf="@+id/repLabelTextView" />
 
     <Button
+        android:id="@+id/logButton"
         android:layout_width="390dp"
         android:layout_height="205dp"
         android:layout_marginTop="16dp"
