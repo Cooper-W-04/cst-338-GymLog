@@ -1,5 +1,6 @@
 package com.example.gymlog.database.entities;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -16,23 +17,24 @@ public class GymLog {
     private double weight;
     private int reps;
     private LocalDateTime date;
+    private int userId;
 
-    public GymLog(String exercise, double weight, int reps) {
+    public GymLog(String exercise, double weight, int reps, int userId) {
         this.exercise = exercise;
         this.weight = weight;
         this.reps = reps;
+        this.userId = userId;
         date = LocalDateTime.now();
     }
 
+    @NonNull
     @Override
     public String toString() {
-        return "GymLog{" +
-                "id=" + id +
-                ", exercise='" + exercise + '\'' +
-                ", weight=" + weight +
-                ", reps=" + reps +
-                ", date=" + date +
-                '}';
+        return exercise + '\n' +
+                "weight: " + weight + '\n' +
+                "reps: " + reps + '\n' +
+                "date: " + date.toString() + '\n' +
+                "=-=-==-=-=-=-=\n";
     }
 
     @Override
@@ -40,12 +42,12 @@ public class GymLog {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GymLog gymLog = (GymLog) o;
-        return id == gymLog.id && Double.compare(weight, gymLog.weight) == 0 && reps == gymLog.reps && Objects.equals(exercise, gymLog.exercise) && Objects.equals(date, gymLog.date);
+        return id == gymLog.id && Double.compare(weight, gymLog.weight) == 0 && reps == gymLog.reps && userId == gymLog.userId && Objects.equals(exercise, gymLog.exercise) && Objects.equals(date, gymLog.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, exercise, weight, reps, date);
+        return Objects.hash(id, exercise, weight, reps, date, userId);
     }
 
     public int getId() {
@@ -86,5 +88,13 @@ public class GymLog {
 
     public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
