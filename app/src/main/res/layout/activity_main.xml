@@ -7,16 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/logDisplayTextView"
-        android:layout_width="390dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="16dip"
-        android:padding="8dp"
-        android:text="Hello World!"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/logDisplayRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="8dip"
+        android:padding="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/gymlog_recycler_item" />
 
     <TextView
         android:id="@+id/exerciseLabelTextView"
@@ -27,7 +28,7 @@
         android:text="@string/exercise"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logDisplayTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/logDisplayRecyclerView" />
 
     <EditText
         android:id="@+id/exerciseInputEditText"
@@ -87,7 +88,7 @@
     <Button
         android:id="@+id/logButton"
         android:layout_width="390dp"
-        android:layout_height="205dp"
+        android:layout_height="125dp"
         android:layout_marginTop="16dp"
         android:text="@string/log"
         android:textSize="36sp"
